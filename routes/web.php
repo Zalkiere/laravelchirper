@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', [CustomerController::class, 'index']);
+
+Route::get('/users',[UserController::class, 'index']);
+
+Route::get( '/user/{id}',[UserController::class, 'show']);
+
+Route::get('/customer', [CustomerController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
